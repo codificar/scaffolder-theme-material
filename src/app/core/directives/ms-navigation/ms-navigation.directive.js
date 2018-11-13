@@ -249,6 +249,7 @@
 
             var service = {
                 saveItem           : saveItem,
+                deleteItem         : deleteItem,
                 sort               : sortByWeight,
                 setActiveItem      : setActiveItem,
                 getActiveItem      : getActiveItem,
@@ -307,6 +308,11 @@
                 }
 
                 return navigation;
+            }
+
+            function deleteItem(root)
+            {
+                navigation = [];
             }
 
             /**

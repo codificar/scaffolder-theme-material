@@ -20,8 +20,6 @@
 
     <div layout="row" layout-align="start center">
 
-        <ms-search-bar></ms-search-bar>
-
         <md-menu-bar id="user-menu">
             <md-menu md-position-mode="left bottom">
                 <md-button class="user-button" ng-click="$mdOpenMenu()"
@@ -35,7 +33,7 @@
                                      class="icon status s16">
                             </md-icon>
                         </div>
-                        <span class="username" hide-xs>John Doe</span>
+                        <span class="username" hide-xs>{{vm.userName}}</span>
                         <md-icon md-font-icon="icon-chevron-down"
                                  class="icon s16" hide-xs></md-icon>
                     </div>
@@ -44,10 +42,10 @@
                 <md-menu-content width="3">
                     <md-menu-item class="md-indent" ui-sref="app.pages_profile">
                         <md-icon md-font-icon="icon-account" class="icon"></md-icon>
-                        <md-button>My Profile</md-button>
+                        <md-button>Meu Perfil</md-button>
                     </md-menu-item>
 
-                    <md-menu-item class="md-indent" ui-sref="app.mail">
+                    <!-- <md-menu-item class="md-indent" ui-sref="app.mail">
                         <md-icon md-font-icon="icon-email" class="icon"></md-icon>
                         <md-button>Inbox</md-button>
                     </md-menu-item>
@@ -71,19 +69,19 @@
                                 </md-menu-item>
                             </md-menu-content>
                         </md-menu>
-                    </md-menu-item>
+                    </md-menu-item> -->
 
                     <md-menu-divider></md-menu-divider>
 
                     <md-menu-item class="md-indent">
                         <md-icon md-font-icon="icon-logout" class="icon"></md-icon>
-                        <md-button ng-click="vm.logout()">Logout</md-button>
+                        <md-button ng-click="vm.logout()">Sair</md-button>
                     </md-menu-item>
                 </md-menu-content>
             </md-menu>
         </md-menu-bar>
 
-        <md-menu id="language-menu" md-offset="0 72" md-position-mode="target-right target">
+        <!--<md-menu id="language-menu" md-offset="0 72" md-position-mode="target-right target">
             <md-button class="language-button" ng-click="$mdOpenMenu()"
                        aria-label="Language" md-menu-origin md-menu-align-target>
                 <div layout="row" layout-align="center center">
@@ -103,7 +101,7 @@
                     </md-button>
                 </md-menu-item>
             </md-menu-content>
-        </md-menu>
+        </md-menu>-->
 
     </div>
 </div>

@@ -7,42 +7,33 @@
         .controller('ToolbarController', ToolbarController);
 
     /** @ngInject */
-    function ToolbarController($rootScope, $mdSidenav, $translate, $mdToast)
+    function ToolbarController($rootScope, $state, $mdSidenav, $translate, $mdToast, $localStorage, $location, $http, $mdDialog, UserResource, msNavigationService, CdAclService)
     {
         var vm = this;
 
-        // Data
-        vm.bodyEl = angular.element('body');
-        $rootScope.global = {
-            search: ''
+        var alert = $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#popupContainer')))
+                    .clickOutsideToClose(true)
+                    .ok('Ok');
+
+        /**
+         * Attributes
+         */
+        vm.currentUser = $localStorage.currentUser;
+        vm.labels = {
+            admin: false,
+            client: false,
+            candidate: false,
+            pyshcologist: false
         };
-        vm.userStatusOptions = [
-            {
-                'title': 'Online',
-                'icon' : 'icon-checkbox-marked-circle',
-                'color': '#4CAF50'
-            },
-            {
-                'title': 'Away',
-                'icon' : 'icon-clock',
-                'color': '#FFC107'
-            },
-            {
-                'title': 'Do not Disturb',
-                'icon' : 'icon-minus-circle',
-                'color': '#F44336'
-            },
-            {
-                'title': 'Invisible',
-                'icon' : 'icon-checkbox-blank-circle-outline',
-                'color': '#BDBDBD'
-            },
-            {
-                'title': 'Offline',
-                'icon' : 'icon-checkbox-blank-circle-outline',
-                'color': '#616161'
-            }
-        ];
+
+        vm.profiles = {
+            admins: [],
+            clients: [],
+            candidates: [],
+            psychologists: []
+        };
+
         vm.languages = [
             {
                 'title'      : 'Portuguese',
@@ -57,46 +48,70 @@
                 'flag'       : 'gb'
             }
         ];
-
-        // Methods
-        vm.toggleSidenav = toggleSidenav;
+        vm.selectedLanguage = vm.languages[0];
+        
+        /**
+         * Methods
+         */
+        vm.generateToolbar = generateToolbar;
+        vm.changeProfile = changeProfile;
         vm.logout = logout;
+        vm.toggleSidenav = toggleSidenav;
         vm.changeLanguage = changeLanguage;
-        vm.setUserStatus = setUserStatus;
         vm.toggleHorizontalMobileMenu = toggleHorizontalMobileMenu;
 
-        //////////
-
-        vm.userStatus = vm.userStatusOptions[0];
-        vm.selectedLanguage = vm.languages[0];
+        generateToolbar();
 
         /**
-         * Toggle sidenav
-         *
-         * @param sidenavId
+         * Gera a barra superior
          */
-        function toggleSidenav(sidenavId)
-        {
-            $mdSidenav(sidenavId).toggle();
-        }
+        function generateToolbar() {
+            var profiles = CryptoJS.AES.decrypt($localStorage.profiles, CdAclService.key);
+            profiles = JSON.parse(profiles.toString(CryptoJS.enc.Utf8));
 
+            angular.forEach(profiles, function(profile) {
+                if($localStorage.currentUser.profile == profile.id)
+                    profile.active = true;
+
+                switch(profile.role) {
+                    case 1: //Administrador
+                        vm.profiles.admins.push(profile),
+                        vm.labels.admin = true;
+                        break;
+
+                    case 2: //Candidato
+                        vm.profiles.candidates.push(profile),
+                        vm.labels.candidate = true;
+                        break;
+
+                    case 3: //Cliente
+                        vm.profiles.clients.push(profile),
+                        vm.labels.client = true;
+                        break;
+
+                    case 4: //Psicólogo
+                        vm.profiles.psychologists.push(profile),
+                        vm.labels.psychologist = true;
+                        break;
+                }
+            });
+        }
+        
         /**
-         * Sets User Status
-         * @param status
+         * Logout 
          */
-        function setUserStatus(status)
-        {
-            vm.userStatus = status;
+        function logout() {
+            delete $localStorage.currentUser;
+            delete $localStorage.menu;
+            delete $localStorage.profiles;
+            delete $localStorage.acl;
+
+            $http.defaults.headers.common.Authorization = '';
+
+            $location.path('/login');
         }
 
-        /**
-         * Logout Function
-         */
-        function logout()
-        {
-
-        }
-
+        
         /**
          * Change Language
          */
@@ -121,6 +136,87 @@
 
             //Change the language
             $translate.use(lang.code);
+        }
+
+        /**
+         * Toggle sidenav
+         *
+         * @param sidenavId
+         */
+        function toggleSidenav(sidenavId)
+        {
+            $mdSidenav(sidenavId).toggle();
+        }
+
+        function changeProfile(profile) {
+            UserResource.authorizations(profile.id).$promise.then(function(data) {
+                var profilesRet = data.data.profiles;
+                var actionsRet = data.data.actions;
+                var acl = [];
+                var profiles = [];
+                var actions = [];
+
+                angular.forEach(profilesRet, function(profile, index) {
+                    var p = {
+                        id: profile.id,
+                        name: profile.name,
+                        role: profile.role_id
+                    };
+                    
+                    profiles.push(p);
+                });
+                profiles = CryptoJS.AES.encrypt(JSON.stringify(profiles), CdAclService.key).toString();
+                $localStorage.profiles = profiles;
+
+                msNavigationService.deleteItem();
+
+                angular.forEach(actionsRet, function(action) {
+                    if(action.kind == 'Menu') {
+                        var a = {
+                            title: action.title,
+                            order: action.order,
+                            state: action.state,
+                            action_parent_id: action.action_parent_id,
+                            class: action.class
+                        };
+                        actions.push(a);
+
+                        var item = {
+                            title: action.title,
+                            icon: action.icon,
+                            weight: action.order
+                        };
+        
+                        if(action.state != null || action.state != undefined) 
+                            item.state = action.state;
+        
+                        msNavigationService.saveItem(action.class, item);
+                    }
+                    else {
+                        var act = action.state.split('.');
+                        if(act.length > 0 && act[0] == 'acl')
+                            acl.push(action.state);
+                    }
+                });
+
+                actions = CryptoJS.AES.encrypt(JSON.stringify(actions), CdAclService.key).toString();
+                $localStorage.menu = actions;
+               
+                CdAclService.setPermissions(acl);
+                $localStorage.currentUser.profile = profile.id;
+                $localStorage.currentUser.role = profile.role; 
+
+                var route = 'app.dashboards_general';
+                if($localStorage.currentUser.role == 2) 
+                    route = 'app.dashboards_candidate';
+
+                $state.go(route, {}, {reload: true}).then(function() {
+                    alert.title("Sucesso");
+                    alert.textContent("Seu perfil ativo foi trocado com sucesso.");
+                    $mdDialog.show(alert);
+                });
+              
+            });
         }
 
         /**

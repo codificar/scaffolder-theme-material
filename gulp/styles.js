@@ -21,18 +21,19 @@ gulp.task('styles', function ()
 {
     return buildStyles();
 });
-
+ 
 var buildStyles = function ()
 {
     var sassOptions = {
         style: 'expanded'
-    };
+    }; 
 
     var injectFiles = gulp.src([
         path.join(conf.paths.src, '/app/core/scss/**/*.scss'),
         path.join(conf.paths.src, '/app/core/**/*.scss'),
         path.join(conf.paths.src, '/app/**/*.scss'),
-        path.join(conf.paths.src, '/assets/css/*.scss'),
+        path.join(conf.paths.src, '/assets/css/*.scss'), 
+        path.join(conf.paths.rsc, '/**/*.scss'), 
         path.join('!' + conf.paths.src, '/app/main/components/material-docs/demo-partials/**/*.scss'),
         path.join('!' + conf.paths.src, '/app/core/scss/partials/**/*.scss'),
         path.join('!' + conf.paths.src, '/app/index.scss'),
@@ -58,5 +59,7 @@ var buildStyles = function ()
         .pipe($.sass(sassOptions)).on('error', conf.errorHandler('Sass'))
         .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
         .pipe($.sourcemaps.write())
+        .pipe($.replace("../../../resources/assets/","/assets/"))
+        .pipe($.replace("../../resources/assets/","/assets/"))
         .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app/')));
 };

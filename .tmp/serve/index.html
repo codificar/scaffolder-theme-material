@@ -1,11 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app="scaffolder">
     <head>
         <base href="/">
         <meta charset="utf-8">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <title>scaffolder - Admin Theme</title> 
+        <title> MAPA Avaliações 3.0 </title>  
+
+       <!--  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>  -->
 
         <!-- Place favicon.jpg and apple-touch-icon.png in the root directory -->
 
@@ -55,15 +62,13 @@
                 #splash-screen {
                     display: block;
                     position: absolute;
-                    top: 0;
+                    top: 0; 
                     left: 0;
-                    right: 0;
+                    right: 0; 
                     bottom: 0;
-                    background-color: #49a250;
-                    background-image: url('assets/images/backgrounds/scaffolder-3.png'); 
-                    background-position: center;
-                    /*background-size: 600px 100px; */
-                    /*background-repeat: no-repeat;*/
+                    background-color: #fff;
+                    background-image: url('../../resources/assets/images/bg_loading_mapa.png'); 
+                    background-position: center; 
                     z-index: 99999;
                 }
 
@@ -297,22 +302,22 @@
 
                 @-webkit-keyframes left-circle-colors {
                     0%, 100% {
-                        border-color: #fdfdfd;
+                        border-color: #fa946d;
                         border-right-color: transparent;
                         border-bottom-color: transparent;
                     }
                     25% {
-                        border-color: #9eb1b0;
+                        border-color: #ee784a;
                         border-right-color: transparent;
                         border-bottom-color: transparent;
                     }
                     50% {
-                        border-color: #1b83a5;
+                        border-color: #dd511a;
                         border-right-color: transparent;
                         border-bottom-color: transparent;
                     }
                     75% {
-                        border-color: #a9dced;
+                        border-color: #d64006;
                         border-right-color: transparent;
                         border-bottom-color: transparent;
                     }
@@ -320,22 +325,22 @@
 
                 @keyframes left-circle-colors {
                     0%, 100% {
-                        border-color: #fdfdfd;
+                        border-color: #fa946d;
                         border-right-color: transparent;
                         border-bottom-color: transparent;
                     }
                     25% {
-                        border-color: #9eb1b0;
+                        border-color: #ee784a;
                         border-right-color: transparent;
                         border-bottom-color: transparent;
                     }
                     50% {
-                        border-color: #1b83a5;
+                        border-color: #dd511a;
                         border-right-color: transparent;
                         border-bottom-color: transparent;
                     }
                     75% {
-                        border-color: #a9dced;
+                        border-color: #d64006;
                         border-right-color: transparent;
                         border-bottom-color: transparent;
                     }
@@ -343,22 +348,22 @@
 
                 @-webkit-keyframes right-circle-colors {
                     0%, 100% {
-                        border-color: #fdfdfd;
+                        border-color: #fa946d;
                         border-left-color: transparent;
                         border-bottom-color: transparent;
                     }
                     25% {
-                        border-color: #9eb1b0;
+                        border-color: #ee784a;
                         border-left-color: transparent;
                         border-bottom-color: transparent;
                     }
                     50% {
-                        border-color: #1b83a5;
+                        border-color: #dd511a;
                         border-left-color: transparent;
                         border-bottom-color: transparent;
                     }
-                    75% {
-                        border-color: #a9dced;
+                    75% { 
+                        border-color: #d64006;
                         border-left-color: transparent;
                         border-bottom-color: transparent;
                     }
@@ -366,22 +371,22 @@
 
                 @keyframes right-circle-colors {
                     0%, 100% {
-                        border-color: #fdfdfd;
+                        border-color: #fa946d;
                         border-left-color: transparent;
                         border-bottom-color: transparent;
                     }
                     25% {
-                        border-color: #9eb1b0;
+                        border-color: #ee784a;
                         border-left-color: transparent;
                         border-bottom-color: transparent;
                     }
                     50% {
-                        border-color: #1b83a5;
+                        border-color: #dd511a;
                         border-left-color: transparent;
                         border-bottom-color: transparent;
                     }
                     75% {
-                        border-color: #a9dced;
+                        border-color: #d64006;
                         border-left-color: transparent;
                         border-bottom-color: transparent; 
                     } 
@@ -391,7 +396,7 @@
             <div id="splash-screen">
                 <div class="center">
                     <div class="scaffolder-logo">
-                        <img src="assets/images/logos/scaffolder.png" alt="">
+                        <img src="../../resources/assets/images/logo_mapa.png" alt="">
                     </div>
                     <!-- Material Design Spinner -->
                     <div class="spinner-wrapper">
@@ -492,6 +497,7 @@
         <script src="../bower_components/ngstorage/ngStorage.js"></script>
         <script src="../bower_components/satellizer/satellizer.js"></script>
         <script src="../bower_components/angular-ivh-treeview/dist/ivh-treeview.js"></script>
+        <script src="../bower_components/crypto-js/crypto-js.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -504,22 +510,22 @@
         <script src="app/main/pages/blankstate/text/blankstate_text.controller.js"></script>
         <script src="app/main/components/form-validate/form-validate.module.js"></script>
         <script src="app/main/components/form-validate/directive-unique/unique.directive.js"></script>
-        <script src="app/main/components/form-validate/directive-required/required.directive.js"></script>
         <script src="app/main/components/form-validate/directive-phone/phone.directive.js"></script>
+        <script src="app/main/components/form-validate/directive-required/required.directive.js"></script>
         <script src="app/main/components/form-validate/directive-password/password.directive.js"></script>
         <script src="app/main/components/form-validate/directive-number/number.directive.js"></script>
-        <script src="app/main/components/form-validate/directive-list/list.directive.js"></script>
         <script src="app/main/components/form-validate/directive-mail/mail.directive.js"></script>
+        <script src="app/main/components/form-validate/directive-list/list.directive.js"></script>
         <script src="app/main/components/form-validate/directive-float/float.directive.js"></script>
         <script src="app/main/components/form-validate/directive-enum/enum.directive.js"></script>
         <script src="app/main/components/form-validate/directive-date/date.directive.js"></script>
         <script src="app/main/components/form-validate/directive-cpf/cpf.directive.js"></script>
         <script src="app/main/components/form-validate/directive-confirm/confirm.directive.js"></script>
-        <script src="app/main/components/form-validate/directive-cnpj/cnpj.directive.js"></script>
         <script src="app/main/components/form-validate/directive-completeaddress/completeaddress.directive.js"></script>
+        <script src="app/main/components/form-validate/directive-cnpj/cnpj.directive.js"></script>
         <script src="app/main/components/form-validate/directive-chips/chips.directive.js"></script>
-        <script src="app/main/components/form-validate/directive-cep/cep.directive.js"></script>
         <script src="app/main/components/form-validate/directive-checkbox/checkbox.directive.js"></script>
+        <script src="app/main/components/form-validate/directive-cep/cep.directive.js"></script>
         <script src="app/main/components/form-validate/directive-autocomplete/autocomplete.directive.js"></script>
         <script src="app/quick-panel/quick-panel.module.js"></script>
         <script src="app/quick-panel/tabs/chat/chat-tab.controller.js"></script>
@@ -541,8 +547,8 @@
         <script src="app/core/directives/ms-responsive-table/ms-responsive-table.directive.js"></script>
         <script src="app/core/directives/ms-random-class/ms-random-class.directive.js"></script>
         <script src="app/core/directives/ms-navigation/ms-navigation.directive.js"></script>
-        <script src="app/core/directives/ms-form-wizard/ms-form-wizard.directive.js"></script>
         <script src="app/core/directives/ms-nav/ms-nav.directive.js"></script>
+        <script src="app/core/directives/ms-form-wizard/ms-form-wizard.directive.js"></script>
         <script src="app/core/directives/ms-card/ms-card.directive.js"></script>
         <script src="app/main/components/list.controller.js"></script>
         <script src="app/core/theming/scaffolder-theming.provider.js"></script>
@@ -550,18 +556,18 @@
         <script src="app/core/theming/scaffolder-themes.constant.js"></script>
         <script src="app/core/theming/scaffolder-palettes.constant.js"></script>
         <script src="app/core/theming/scaffolder-generator.factory.js"></script>
-        <script src="app/core/theme-options/theme-options.directive.js"></script>
         <script src="app/core/services/ms-utils.service.js"></script>
         <script src="app/core/services/api-resolver.service.js"></script>
+        <script src="app/core/theme-options/theme-options.directive.js"></script>
         <script src="app/core/filters/tag.filter.js"></script>
         <script src="app/core/filters/basic.filter.js"></script>
         <script src="app/core/directives/highlight.directive.js"></script>
         <script src="app/core/config/scaffolder-config.provider.js"></script>
         <script src="app/toolbar/toolbar.module.js"></script>
         <script src="app/toolbar/toolbar.controller.js"></script>
+        <script src="app/quick-panel/quick-panel.controller.js"></script>
         <script src="app/navigation/navigation.module.js"></script>
         <script src="app/navigation/navigation.controller.js"></script>
-        <script src="app/quick-panel/quick-panel.controller.js"></script>
         <script src="../../../resources/angularjs/index.module.js"></script>
         <script src="app/main/main.controller.js"></script>
         <script src="app/core/core.run.js"></script>
@@ -575,30 +581,92 @@
         <script src="app/main/pages/blankstate/blankstate.module.js"></script>
         <script src="app/main/components/datepicker-range/datepicker-range.module.js"></script>
         <script src="app/main/components/components.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/widget/register/widget_register.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/widget/register/widget_register.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/widget/list/widget_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/scrumboard.module.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/views/calendar/dialogs/event/event-dialog.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/sidenavs/settings/menus/members/members-menu.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/sidenavs/settings/menus/labels/labels-menu.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/sidenavs/settings/menus/color/color-menu.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/nano/print/nano/indicators/nano_indicators.service.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/nano/print/nano/indicators/nano_indicators.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/individual/report_individual.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/individual/print/individual/indicators/individual_indicators.service.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/individual/print/individual/indicators/individual_indicators.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/radar/print/radar/radar_indicators.service.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/radar/print/radar/radar_indicators.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/radar/print/radar/d3.radar.chart.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group_dimensions/print/dimensions/profile_group_dimensions.service.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group_dimensions/print/dimensions/profile_group_dimensions.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group/print/indicators/profile_group_indicators.service.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group/print/indicators/profile_group_indicators.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/reports.module.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/numeric_group/indicators/xls/group_indicators_xls.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/numeric_group/indicators/html/group_indicators.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/numeric_group/indicators/classification/group_indicators_classification.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/numeric_group/dimensions/xls/group_dimensions_xls.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/numeric_group/dimensions/html/group_dimensions.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/group/indicators/xls/group_indicators_xls.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/group/indicators/html/group_indicators.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/group/indicators/classification/group_indicators_classification.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/group/dimensions/xls/group_dimensions_xls.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/group/dimensions/html/group_dimensions.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/views/calendar/calendar-view.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/views/boards/boards-view.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/views/board/board-view.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/sidenavs/settings/settings-sidenav.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/sidenavs/filters/filters-sidenav.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/directives/ms-sb-add-card/ms-sb-add-card.directive.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/dialogs/card/card-dialog.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/radar/modal/generate_report_radar.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group_dimensions/modal/generate_report_profile_group.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group/modal/generate_report_profile_group.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/numeric_group_indicator/modal/generate_report_profile_group.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/numeric_group_dimension/modal/generate_report_profile_group.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/nano/modal/generate_report_nano.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/individual/modal/generate_report_individual.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/group_indicator/modal/generate_report_profile_group.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/group_dimension/modal/generate_report_profile_group.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account/register/modal/modal_report.controller.js"></script>
+        <script src="../../../resources/angularjs/main/components/selection-advanced/component_select_account/modal/modal_component_select_account.controller.js"></script>
+        <script src="../../../resources/angularjs/main/components/selection-advanced/component_association/modal/modal_component_association.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/numeric_group/indicators/group_indicators.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/numeric_group/dimensions/group_dimensions.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/group/indicators/group_indicators.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/group/dimensions/group_dimensions.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/services/filters.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/services/dialog.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/services/board.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/general/modal/terms.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/account/dashboard_account.module.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/account/board/board-view.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/candidate/modal/terms.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/user_widget/register/user_widget_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/user_widget/register/user_widget_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/user_widget/list/user_widget_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/widget/register/widget_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/widget/register/widget_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/widget/list/widget_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/user/register/user_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/user/register/user_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/user/list/user_list.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/system_data/list/system_data_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/user/edit/user_edit.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/user/edit/user_edit.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/test/modal/see_questions.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/test/modal/instructions.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/system_data/register/system_data_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/system_data/register/system_data_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/system_data/list/system_data_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/submodules/register/submodules_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/submodules/register/submodules_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/submodules/list/submodules_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/segment/register/segment_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/segment/register/segment_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/segment/list/segment_list.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/sector/register/sector_register.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/sector/register/sector_register.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/sector/list/sector_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_score/register/scale_score_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_score/register/scale_score_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_score/list/scale_score_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/sector/register/sector_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/sector/register/sector_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/sector/list/sector_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_correction/register/scale_correction_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_correction/register/scale_correction_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_correction/list/scale_correction_list.controller.js"></script>
@@ -608,6 +676,15 @@
         <script src="../../../resources/angularjs/main/pages/role/register/role_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/role/register/role_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/role/list/role_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/radar/report_radar.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group_dimensions/profile_group_dimensions.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group/report_profile_group.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/numeric_group_indicator/numeric_group_indicator.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/numeric_group_dimension/numeric_group_dimension.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/nano/report_nano.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/individual/report_individual.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/group_indicator/report_group_indicator.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/group_dimension/report_group_dimension.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_scale_correction/register/questionary_scale_correction_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_scale_correction/register/questionary_scale_correction_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_scale_correction/list/questionary_scale_correction_list.controller.js"></script>
@@ -640,9 +717,9 @@
         <script src="../../../resources/angularjs/main/pages/questionary_dimension_average/list/questionary_dimension_average_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_dimension/register/questionary_dimension_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_dimension/register/questionary_dimension_register.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/questionary_dimension/list/questionary_dimension_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_account_report/register/questionary_account_report_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_account_report/register/questionary_account_report_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/questionary_dimension/list/questionary_dimension_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_account_report/list/questionary_account_report_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_account/register/questionary_account_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_account/register/questionary_account_register.controller.js"></script>
@@ -679,6 +756,7 @@
         <script src="../../../resources/angularjs/main/pages/profile_project/list/profile_project_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/profile/register/profile_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/profile/register/profile_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/profile/myprofile/profile_myprofile.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/profile/list/profile_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/permission/register/permission_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/permission/register/permission_register.controller.js"></script>
@@ -701,6 +779,7 @@
         <script src="../../../resources/angularjs/main/pages/occupation/register/occupation_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/occupation/register/occupation_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/occupation/list/occupation_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/login/modal/forgot_password.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/log/register/log_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/log/register/log_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/log/list/log_list.controller.js"></script>
@@ -740,9 +819,9 @@
         <script src="../../../resources/angularjs/main/pages/evaluation_invite/register/evaluation_invite_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_invite/register/evaluation_invite_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_invite/list/evaluation_invite_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/evaluation_indicator_group/list/evaluation_indicator_group_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_indicator_group/register/evaluation_indicator_group_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_indicator_group/register/evaluation_indicator_group_register.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/evaluation_indicator_group/list/evaluation_indicator_group_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_indicator_correction/register/evaluation_indicator_correction_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_indicator_correction/register/evaluation_indicator_correction_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_indicator_correction/list/evaluation_indicator_correction_list.controller.js"></script>
@@ -758,15 +837,17 @@
         <script src="../../../resources/angularjs/main/pages/evaluation_dimension/register/evaluation_dimension_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_dimension/register/evaluation_dimension_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_dimension/list/evaluation_dimension_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/evaluation/show/evaluation_show.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation/register/evaluation_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation/register/evaluation_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/evaluation/new/evaluation_new.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation/list/evaluation_list.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/email_template/register/email_template_register.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/email_template/register/email_template_register.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/email_template/list/email_template_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_transformation/register/dimension_transformation_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_transformation/register/dimension_transformation_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_transformation/list/dimension_transformation_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/email_template/register/email_template_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/email_template/register/email_template_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/email_template/list/email_template_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_correction_interval/register/dimension_correction_interval_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_correction_interval/register/dimension_correction_interval_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_correction_interval/list/dimension_correction_interval_list.controller.js"></script>
@@ -779,36 +860,37 @@
         <script src="../../../resources/angularjs/main/pages/cost_center/register/cost_center_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/cost_center/register/cost_center_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/cost_center/list/cost_center_list.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/confiability/register/confiability_register.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/confiability/register/confiability_register.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/confiability/list/confiability_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_scale/register/classification_scale_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_scale/register/classification_scale_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_scale/list/classification_scale_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/confiability/register/confiability_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/confiability/register/confiability_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/confiability/list/confiability_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_indicator/register/classification_indicator_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_indicator/register/classification_indicator_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_indicator/list/classification_indicator_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_dimension/register/classification_dimension_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_dimension/register/classification_dimension_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_dimension/list/classification_dimension_list.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/classification/register/classification_register.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/classification/register/classification_register.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/classification/list/classification_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_project/register/candidate_project_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_project/register/candidate_project_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_project/list/candidate_project_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/classification/list/classification_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/classification/register/classification_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/classification/register/classification_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_experience/register/candidate_experience_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_experience/register/candidate_experience_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_experience/list/candidate_experience_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate/register/candidate_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate/register/candidate_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/candidate/myevaluation/candidate_myevaluation.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate/list/candidate_list.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/answer/register/answer_register.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/answer/register/answer_register.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/answer/list/answer_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/age/register/age_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/age/register/age_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/age/list/age_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/answer/register/answer_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/answer/register/answer_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/answer/list/answer_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/address/register/address_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/address/register/address_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/address/list/address_list.controller.js"></script>
@@ -824,43 +906,79 @@
         <script src="../../../resources/angularjs/main/pages/account_report/register/account_report_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_report/register/account_report_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_report/list/account_report_list.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/account_questionary_order/register/account_questionary_order_register.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/account_questionary_order/register/account_questionary_order_register.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/account_questionary_order/list/account_questionary_order_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_psychologist/register/account_psychologist_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_psychologist/register/account_psychologist_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_psychologist/list/account_psychologist_list.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/account_cost_center/list/account_cost_center_list.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account_questionary_order/register/account_questionary_order_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account_questionary_order/register/account_questionary_order_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account_questionary_order/list/account_questionary_order_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_cost_center/register/account_cost_center_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_cost_center/register/account_cost_center_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account_cost_center/list/account_cost_center_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_contract/register/account_contract_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_contract/register/account_contract_register.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_contract/list/account_contract_list.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/account/register/account_register.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account/register/account_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account/pending_approval/account_pending_approval.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account/new/useraccount_new.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/account/list/account_list.controller.js"></script>
-        <script src="../../../resources/angularjs/main/pages/widget/widget.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/widget/widget.resource.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/pre_register/modal/forgot_password.controller.js"></script>
+        <script src="../../../resources/angularjs/main/components/selection-advanced/component_select_account/component_select_account.module.js"></script>
+        <script src="../../../resources/angularjs/main/components/selection-advanced/component_select_account/component_select_account.directive.js"></script>
+        <script src="../../../resources/angularjs/main/components/selection-advanced/infinite-scroll-tree/infinite_scroll_tree.directive.js"></script>
+        <script src="../../../resources/angularjs/main/components/selection-advanced/component_association/component_association.module.js"></script>
+        <script src="../../../resources/angularjs/main/components/selection-advanced/component_association/component_association.directive.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/settings/settings.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/numeric_group/group.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/reports/group/group.service.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/scrumboard/scrumboard.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/widgets/widgets_mapa.directives.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/project/dashboard-project.module.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/project/dashboard-project.resource.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/project/dashboard-project.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/general/dashboard_general.module.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/general/dashboard_general.resource.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/general/dashboard_general.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/account/dashboard_account.resource.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/account/dashboard_account.controller.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/candidate/dashboard_candidate.module.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/candidate/dashboard_candidate.resource.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/candidate/dashboard_candidate.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/user_widget/user_widget.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/user_widget/user_widget.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/widget/widget.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/widget/widget.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/user/user.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/user/user.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/typing/typing.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/typing/typing.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/type_report/type_reports.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/test_invitation/test_invitation.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/test_invitation/test_invitation.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/test_invitation/test_invitation.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/test/test.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/test/test.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/system_data/system_data.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/system_data/system_data.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/submodules/submodules.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/submodules/submodules.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/segment/segment.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/segment/segment.resource.js"></script>
-        <script src="../../../resources/angularjs/main/pages/sector/sector.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/sector/sector.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_score/scale_score.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_score/scale_score.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/sector/sector.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/sector/sector.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_correction/scale_correction.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_correction/scale_correction.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale/scale.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale/scale.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/role/role.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/role/role.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/login/login-v2.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reset_password/reset_password.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/reports.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/reports.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_scale_correction/questionary_scale_correction.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_scale_correction/questionary_scale_correction.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_question/questionary_question.module.js"></script>
@@ -923,6 +1041,8 @@
         <script src="../../../resources/angularjs/main/pages/occupation_account/occupation_account.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/occupation/occupation.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/occupation/occupation.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/login/login.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/login/login-v2.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/log/log.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/log/log.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/item/item.module.js"></script>
@@ -963,10 +1083,12 @@
         <script src="../../../resources/angularjs/main/pages/evaluation_dimension/evaluation_dimension.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation/evaluation.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation/evaluation.resource.js"></script>
-        <script src="../../../resources/angularjs/main/pages/email_template/email_template.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/email_template/email_template.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/errors/errors.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/errors/errors.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_transformation/dimension_transformation.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_transformation/dimension_transformation.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/email_template/email_template.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/email_template/email_template.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_correction_interval/dimension_correction_interval.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_correction_interval/dimension_correction_interval.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_correction_average/dimension_correction_average.module.js"></script>
@@ -975,26 +1097,30 @@
         <script src="../../../resources/angularjs/main/pages/dimension/dimension.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/cost_center/cost_center.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/cost_center/cost_center.resource.js"></script>
-        <script src="../../../resources/angularjs/main/pages/confiability/confiability.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/confiability/confiability.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_scale/classification_scale.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_scale/classification_scale.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/confiability/confiability.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/confiability/confiability.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_indicator/classification_indicator.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_indicator/classification_indicator.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_dimension/classification_dimension.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_dimension/classification_dimension.resource.js"></script>
-        <script src="../../../resources/angularjs/main/pages/classification/classification.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/classification/classification.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_project/candidate_project.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_project/candidate_project.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/classification/classification.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/classification/classification.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_experience/candidate_experience.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_experience/candidate_experience.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate/candidate.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate/candidate.resource.js"></script>
-        <script src="../../../resources/angularjs/main/pages/answer/answer.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/answer/answer.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/apply_test/apply_test.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/apply_test/apply_test.controller.js"></script>
+        <script src="../../../resources/angularjs/main/pages/answer_sheet/answer_sheet.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/answer_sheet/answer_sheet.controller.js"></script>
         <script src="../../../resources/angularjs/main/pages/age/age.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/age/age.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/answer/answer.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/answer/answer.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/address/address.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/address/address.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/action_role/action_role.module.js"></script>
@@ -1005,28 +1131,49 @@
         <script src="../../../resources/angularjs/main/pages/account_user/account_user.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_report/account_report.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_report/account_report.resource.js"></script>
-        <script src="../../../resources/angularjs/main/pages/account_questionary_order/account_questionary_order.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/account_questionary_order/account_questionary_order.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_psychologist/account_psychologist.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_psychologist/account_psychologist.resource.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account_questionary_order/account_questionary_order.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account_questionary_order/account_questionary_order.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_cost_center/account_cost_center.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_cost_center/account_cost_center.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_contract/account_contract.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_contract/account_contract.resource.js"></script>
         <script src="../../../resources/angularjs/main/pages/account/account.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account/account.resource.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/reset_password/reset_password.controller.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/recover_password/recover_password.controller.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/pre_register/pre_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/pre_register/pre_register.resource.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/first_access/first_access.controller.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/complete_user_register/complete_user_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/complete_register/complete_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/complete_register/complete_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/complete_psychologist_register/complete_psychologist_register.controller.js"></script>
+        <script src="../../../resources/angularjs/main/services/helpers.js"></script>
+        <script src="../../../resources/angularjs/main/services/filters.js"></script>
+        <script src="../../../resources/angularjs/main/services/constants.js"></script>
+        <script src="../../../resources/angularjs/main/services/acl_service.js"></script>
         <script src="../../../resources/angularjs/index.api.js"></script>
-        <script src="../../../resources/angularjs/main/pages/widget/list/widget_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/user_widget/list/user_widget_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/widget/list/widget_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/user/list/user_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/system_data/list/system_data_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/submodules/list/submodules_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/segment/list/segment_list.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/sector/list/sector_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_score/list/scale_score_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/sector/list/sector_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale_correction/list/scale_correction_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/scale/list/scale_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/role/list/role_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/radar/report_radar.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group_dimensions/profile_group_dimensions.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/profile_group/report_profile_group.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/numeric_group_indicator/numeric_group_indicator.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/numeric_group_dimension/numeric_group_dimension.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/nano/report_nano.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/group_indicator/report_group_indicator.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reports/group_dimension/report_group_dimension.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_scale_correction/list/questionary_scale_correction_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_question/list/questionary_question_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/questionary_project_report/list/questionary_project_report_list.module.js"></script>
@@ -1050,6 +1197,7 @@
         <script src="../../../resources/angularjs/main/pages/project/list/project_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/profile_user/list/profile_user_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/profile_project/list/profile_project_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/profile/myprofile/profile_myprofile.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/profile/list/profile_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/permission/list/permission_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/opt_group_opt/list/opt_group_opt_list.module.js"></script>
@@ -1077,33 +1225,47 @@
         <script src="../../../resources/angularjs/main/pages/evaluation_indicator/list/evaluation_indicator_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_dimension_average/list/evaluation_dimension_average_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation_dimension/list/evaluation_dimension_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/evaluation/new/evaluation_new.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/evaluation/list/evaluation_list.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/email_template/list/email_template_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_transformation/list/dimension_transformation_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/email_template/list/email_template_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_correction_interval/list/dimension_correction_interval_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension_correction_average/list/dimension_correction_average_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/dimension/list/dimension_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/cost_center/list/cost_center_list.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/confiability/list/confiability_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_scale/list/classification_scale_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/confiability/list/confiability_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_indicator/list/classification_indicator_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/classification_dimension/list/classification_dimension_list.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/classification/list/classification_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_project/list/candidate_project_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/classification/list/classification_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate_experience/list/candidate_experience_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/candidate/myevaluation/candidate_myevaluation.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/candidate/list/candidate_list.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/answer/list/answer_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/age/list/age_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/answer/list/answer_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/address/list/address_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/action_role/list/action_role_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/action/list/action_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_user/list/account_user_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_report/list/account_report_list.module.js"></script>
-        <script src="../../../resources/angularjs/main/pages/account_questionary_order/list/account_questionary_order_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_psychologist/list/account_psychologist_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account_questionary_order/list/account_questionary_order_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_cost_center/list/account_cost_center_list.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account_contract/list/account_contract_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account/pending_approval/account_pending_approval.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/account/new/useraccount_new.module.js"></script>
         <script src="../../../resources/angularjs/main/pages/account/list/account_list.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/type_report/type_reports.module.js"></script>
+        <script src="../../../resources/angularjs/main/pages/reset_password/reset_password.module.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/reset_password/reset_password.module.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/recover_password/recover_password.module.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/pre_register/pre_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/first_access/first_access.module.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/complete_user_register/complete_user_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/public_pages/complete_psychologist_register/complete_psychologist_register.module.js"></script>
+        <script src="../../../resources/angularjs/main/apps/dashboards/dashboards.module.js"></script>
+        <script src="../../../resources/angularjs/main/components/components.module.js"></script>
         <!-- endinject -->
 
         <!-- inject:partials -->

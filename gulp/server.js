@@ -20,7 +20,8 @@ function browserSyncInit(baseDir, browser)
     {
         routes = {
             '/bower_components': 'bower_components' ,
-            '/resources/angularjs' : '../../../resources/angularjs'
+            '/resources/angularjs' : '../../../resources/angularjs',
+            '/resources/assets' : '../../../resources/assets'
         };
     }
 

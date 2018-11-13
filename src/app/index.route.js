@@ -11,7 +11,8 @@
     {
         $locationProvider.html5Mode(true); 
 
-        $urlRouterProvider.otherwise('/blankstate');
+        // $urlRouterProvider.otherwise('/report/nano');
+        $urlRouterProvider.otherwise('/login');
 
         // State definitions
         $stateProvider

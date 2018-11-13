@@ -8,7 +8,8 @@
  *
  */
 
-/* MODULES */
+/* MODULES */ 
+$color-theme: #000; 
 
 /*
  *		Header - 
@@ -348,9 +349,19 @@ md-tabs-canvas{
 	display: none !important
 }
 
+.tabbed md-tabs-canvas{
+	display: block !important;
+}
+.page-layout.simple.tabbed > .content > md-tabs > md-tabs-wrapper{
+	background: transparent;
+}
 .page-register-scaff .form-wrapper {
 	background: #FFFFFF;
 	padding: 40px !important;
+}
+md-tabs.md-scaffolder-theme md-ink-bar {
+    color: $color-theme;
+    background: $color-theme;
 }
 
 /* titulo scaffolder forms */
@@ -758,7 +769,7 @@ md-checkbox.md-scaffolder-theme:not([disabled]).md-primary.md-checked .md-icon {
 }
 .btn-new-item{
 	/*background: #7b899e !important;*/
-	background: #43a047;
+	background: $color-theme;
 	position: absolute !important;
 	top: -12px;
 	right: 0;
@@ -915,7 +926,7 @@ md-checkbox.md-scaffolder-theme:not([disabled]).md-primary.md-checked .md-icon {
 
 /* dialog */
 md-dialog md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar){
-	background: #43a047 !important;
+	background: $color-theme !important;
 }
 md-dialog .md-icon-button.close-dialog-button.md-button.md-ink-ripple{
 	position: relative !important;
@@ -1084,7 +1095,7 @@ md-input-container cd-list{
 	/*box-shadow: inset 0px 3px 5px -1px rgba(0, 0, 0, 0.2), inset 0px 6px 10px 0px rgba(0, 0, 0, 0.4), inset 0px 1px 18px 0px rgba(0, 0, 0, 0.2) !important;*/
 }
 #vertical-navigation md-toolbar{
-	background: #43a047 !important; 
+	background: $color-theme !important; 
 }
 
 .ms-navigation .ms-navigation-node .ms-navigation-item > .ms-navigation-button.active {
@@ -1093,10 +1104,10 @@ md-input-container cd-list{
 
 /*[md-theme="scaffolder"] */
 .md-accent-bg.ms-navigation-button {
-	/*background-color: rgb(67,160,71);*/
+	/*background-color: $color-theme;*/
 	background-color: transparent !important;
 	color: rgba(255,255,255,1);
-	border-left: 6px solid rgb(67,160,71);
+	border-left: 6px solid $color-theme;
 	padding-left: 50px !important;
 }
 .ms-navigation .ms-navigation-node .ms-navigation-item > .ms-navigation-button, .ms-navigation .ms-navigation-node .ms-navigation-item > .ms-navigation-button .icon {
@@ -1116,7 +1127,7 @@ md-input-container cd-list{
 	position: relative;
 }
 .area-title .title{
-	border-left: 4px solid rgb(67,160,71) !important; 
+	border-left: 4px solid $color-theme !important; 
 	padding-left: 20px !important;
 }
 
@@ -1124,7 +1135,7 @@ md-input-container cd-list{
 	/*border: none !important;*/
 }
 .header-table{
-	background: rgb(67,160,71);
+	background: $color-theme;
 	/*background: #f7f7f7;*/
 	/*border-radius: 3px;*/
 	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
@@ -1214,7 +1225,6 @@ md-input-container{
 	top: -9px;
 }
 
-
 /*
  *	RESPONSIVE DESIGN LAYOUT STYLES
  *	Responsividade das telas de lista e cadastro (campos em formulario)
@@ -1262,5 +1272,3 @@ md-input-container{
 		text-align: center;
 	}
 }
-
-

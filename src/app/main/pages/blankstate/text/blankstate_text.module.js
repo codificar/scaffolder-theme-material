@@ -21,11 +21,11 @@
 				}
 			});
 
-		msNavigationServiceProvider.saveItem('blank', {
-			title : 'Home',
-			icon       : 'icon-home',
-			state      : 'app.blankstate_text',
-			weight: 1 
-		});
+		// msNavigationServiceProvider.saveItem('blank', {
+		// 	title : 'Home',
+		// 	icon       : 'icon-home',
+		// 	state      : 'app.blankstate_text',
+		// 	weight: 1 
+		// });
 	}
 })(); 

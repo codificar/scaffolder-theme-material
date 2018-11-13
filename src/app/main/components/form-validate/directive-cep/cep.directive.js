@@ -17,7 +17,7 @@
 				link: function(scope, element, attrs, ngModel) {
 
 					element.attr('maxlength', 10);
-					element.attr('placeholder', "00.000-000");
+					//element.attr('placeholder', "00.000-000");
 					element.attr('ng-pattern', "/^[0-9]{5}$/");
 
 					// Create error messages

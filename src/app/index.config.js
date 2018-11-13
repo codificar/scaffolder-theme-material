@@ -10,7 +10,7 @@
     function config($translateProvider)
     {
         // Put your custom configurations here
-        $translateProvider.preferredLanguage('en');
+        $translateProvider.preferredLanguage('pt_BR');
     }
 
 })();

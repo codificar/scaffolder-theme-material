@@ -32,7 +32,7 @@
 					angular.element(element)
 						.on("blur", function() {
 							
-							if($scope.valid && !$scope.errorRequired){
+							if(!$scope.errorRequired){
 
 								$http.get(attrs.cdUnique + ngModel.$viewValue ).success(function(result){
 

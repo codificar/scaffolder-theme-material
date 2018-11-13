@@ -10,7 +10,7 @@
     "angular-cookies": "1.4.8",
     "angular-datatables": "0.5.2",
     "angular-google-maps": "2.2.1",
-    "angular-material": "1.0.1",
+    "angular-material": "1.1.1",
     "angular-messages": "1.4.8",
     "angular-nvd3": "1.0.5",
     "angular-resource": "1.4.8",
@@ -41,7 +41,8 @@
     "ng-flow": "2.7.1",
     "ngstorage": "*",
     "satellizer": "^0.14.0",
-    "angular-ivh-treeview": "1.0.3"
+    "angular-ivh-treeview": "1.0.3",
+    "crypto-js": "^3.1.9"
   },
   "devDependencies": {
     "angular-mocks": "1.4.8"
@@ -64,12 +65,15 @@
     },
     "Sortable": {
       "main": [
-        "Sortable.js",
+        "Sortable.js",  
         "ng-sortable.js"
       ]
     },
     "font-awesome": {
       "main": []
+    },
+    "crypto-js": {
+      "main": "crypto-js.js"
     }
   }
 }

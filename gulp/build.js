@@ -3,6 +3,8 @@
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
+var jsonminify = require('gulp-jsonminify');
+var stripDebug = require('gulp-strip-debug');
 
 var $ = require('gulp-load-plugins')({
 	pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
@@ -56,6 +58,9 @@ gulp.task('html', ['inject', 'partials', 'partialsResource'], function ()
 	var jsFilter = $.filter('**/*.js', {restore: true});
 	var cssFilter = $.filter('**/*.css', {restore: true});
 	var assets;
+
+	console.log(conf.paths.tmp);
+	console.log(conf.paths.dist);
 
 	return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
 		.pipe($.inject(partialsInjectFile, partialsInjectOptions))
@@ -115,6 +120,14 @@ gulp.task('other', function ()
 		.pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
+gulp.task('assets', function ()
+{
+	return gulp.src([
+			path.join(conf.paths.rsc, '../assets/**/*'),
+		])
+		.pipe(gulp.dest(path.join(conf.paths.dist, '/assets')));
+});
+
 gulp.task('i18n', function ()
 {
 	var fileFilter = $.filter(function (file)
@@ -125,9 +138,59 @@ gulp.task('i18n', function ()
 	return gulp.src([
 			path.join(conf.paths.rsc, '/**/*.json')
 		])
+		.pipe(jsonminify())
 		.pipe(gulp.dest(path.join(conf.paths.dist, '/app')));
 });
 
+gulp.task('replaceStyles', ['html'], function ()
+{
+	console.log(path.join(conf.paths.dist,'/styles/'));
+
+	return gulp.src([
+			path.join(conf.paths.dist,'/styles/app-*.css')
+			])
+			.pipe($.replace("resources/assets/","assets/"))
+			.pipe(gulp.dest(path.join(conf.paths.dist,'/styles/')));
+});
+
+gulp.task('replace', ['replaceStyles'], function ()
+{
+	console.log(path.join(conf.paths.dist,'/scripts/'));
+
+	return gulp.src(path.join(conf.paths.dist,'/scripts/app-*.js'))
+			.pipe($.replace("/app/main/components/", "app/main/components/"))
+			.pipe($.replace("resources/angularjs/", "app/"))
+			.pipe($.replace("../../../resources/angularjs/","app/"))
+			.pipe($.replace("../../../app/","app/"))
+			.pipe($.replace("../../../resources/assets/","assets/"))
+			.pipe($.replace("resources/assets/","assets/"))
+			.pipe(gulp.dest(path.join(conf.paths.dist,'/scripts/')));
+});
+
+gulp.task('minifyJson', ['replace'], function ()
+{
+	var fileFilter = $.filter(function (file)
+	{
+		return file.stat.isFile();
+	});
+
+	return gulp.src([
+			path.join(conf.paths.dist, '/app/**/*.json')
+		])
+		.pipe(fileFilter)
+		.pipe(jsonminify())
+		.pipe(gulp.dest(path.join(conf.paths.dist, '/app')));
+});
+
+gulp.task('removeLogs', ['minifyJson'], function ()
+{
+	
+	return gulp.src([
+			path.join(conf.paths.dist,'/scripts/app-*.js')
+			])
+		.pipe(stripDebug())
+		.pipe(gulp.dest(path.join(conf.paths.dist,'/scripts/')));
+});
 
 gulp.task('clean', function ()
 {
@@ -144,4 +207,4 @@ gulp.task('clean', function ()
 				});;
 });
 
-gulp.task('build', ['html', 'fonts', 'other', 'i18n']);
+gulp.task('build', ['removeLogs', 'fonts', 'other', 'i18n', 'assets']);
