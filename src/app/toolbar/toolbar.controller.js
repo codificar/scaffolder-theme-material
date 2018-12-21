@@ -8,7 +8,8 @@
 
     /** @ngInject */
     function ToolbarController($rootScope, $state, $mdSidenav, $translate, $mdToast, $localStorage, $location, $http, $mdDialog, UserResource, msNavigationService, CdAclService)
-    {
+    {        
+
         var vm = this;
 
         var alert = $mdDialog.alert()
@@ -69,32 +70,7 @@
             var profiles = CryptoJS.AES.decrypt($localStorage.profiles, CdAclService.key);
             profiles = JSON.parse(profiles.toString(CryptoJS.enc.Utf8));
 
-            angular.forEach(profiles, function(profile) {
-                if($localStorage.currentUser.profile == profile.id)
-                    profile.active = true;
-
-                switch(profile.role) {
-                    case 1: //Administrador
-                        vm.profiles.admins.push(profile),
-                        vm.labels.admin = true;
-                        break;
-
-                    case 2: //Candidato
-                        vm.profiles.candidates.push(profile),
-                        vm.labels.candidate = true;
-                        break;
-
-                    case 3: //Cliente
-                        vm.profiles.clients.push(profile),
-                        vm.labels.client = true;
-                        break;
-
-                    case 4: //Psicólogo
-                        vm.profiles.psychologists.push(profile),
-                        vm.labels.psychologist = true;
-                        break;
-                }
-            });
+            generateToolbarProfiles(profiles, $localStorage.currentUser);
         }
         
         /**
@@ -219,13 +195,67 @@
             });
         }
 
+        function generateToolbarProfiles(profilesData, userData)
+        {
+            vm.profiles = {
+                admins: [],
+                clients: [],
+                candidates: [],
+                psychologists: []
+            };
+
+            vm.labels = {
+                admin: false,
+                client: false,
+                candidate: false,
+                pyshcologist: false
+            };              
+
+            angular.forEach(profilesData, function(profile) {
+                if(userData.profile == profile.id)
+                    profile.active = true;
+
+                switch(profile.role) {
+                    case 1: //Administrador
+                        vm.profiles.admins.push(profile),
+                        vm.labels.admin = true;
+                        break;
+
+                    case 2: //Candidato
+                        vm.profiles.candidates.push(profile),
+                        vm.labels.candidate = true;
+                        break;
+
+                    case 3: //Cliente
+                        vm.profiles.clients.push(profile),
+                        vm.labels.client = true;
+                        break;
+
+                    case 4: //Psicólogo
+                        vm.profiles.psychologists.push(profile),
+                        vm.labels.psychologist = true;
+                        break;
+                }
+            }); 
+        }
+
         /**
          * Toggle horizontal mobile menu
          */
         function toggleHorizontalMobileMenu()
         {
             vm.bodyEl.toggleClass('ms-navigation-horizontal-mobile-menu-active');
-        }
+        }  
+        
+        
+        $rootScope.$on('user-updated', function(event, data) {
+            vm.currentUser = data.user;          
+
+            generateToolbarProfiles(data.profiles, data.user);
+
+        });        
+             
+
     }
 
 })();
