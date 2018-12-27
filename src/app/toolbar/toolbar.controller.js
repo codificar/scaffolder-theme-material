@@ -61,6 +61,8 @@
         vm.changeLanguage = changeLanguage;
         vm.toggleHorizontalMobileMenu = toggleHorizontalMobileMenu;
 
+        vm.myData = myData;
+
         generateToolbar();
 
         /**
@@ -247,6 +249,10 @@
             vm.bodyEl.toggleClass('ms-navigation-horizontal-mobile-menu-active');
         }  
         
+        function myData()
+        {
+            $state.go('app.user_register', {id: vm.currentUser.id });
+        }
         
         $rootScope.$on('user-updated', function(event, data) {
             vm.currentUser = data.user;          
