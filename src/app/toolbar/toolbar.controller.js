@@ -11,7 +11,7 @@
     {        
 
         var vm = this;
-
+        var controle = 0;
         var alert = $mdDialog.alert()
                     .parent(angular.element(document.querySelector('#popupContainer')))
                     .clickOutsideToClose(true)
@@ -123,7 +123,28 @@
          */
         function toggleSidenav(sidenavId)
         {
-            $mdSidenav(sidenavId).toggle();
+            var resto = controle/2;
+            var button = document.getElementById('navigation-toggle');
+            var div= document.getElementById('vertical-navigation');
+
+             if(resto == 0){
+                 button.classList.add("margin-right-menu-mais");
+                 button.classList.remove("margin-right-menu");
+
+                 div.classList.remove("md-locked-open");
+                div.classList.add('md-closed');
+                controle = 1;
+            }else{
+                div.classList.add("md-locked-open","md-closed");               
+                div.classList.remove('md-closed');
+                 button.classList.remove("margin-right-menu-mais");
+                 button.classList.add("margin-right-menu");
+
+                 controle = 0;
+            }
+
+             //$mdSidenav(sidenavId).toggle();
+
         }
 
         function changeProfile(profile) {
