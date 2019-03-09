@@ -1,0 +1,31 @@
+<md-dialog aria-label="Ordenar Colunas" class="custom-dialog">
+	<form>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h2>{{dg.title}}</h2>
+				<span flex></span>
+				<md-button class="md-icon-button close-dialog-button" ng-click="closeDialog()">
+					<i class="icon icon-close-circle"></i>
+				</md-button>
+			</div>
+		</md-toolbar>
+		<md-dialog-content> 
+			<div class="md-dialog-content">
+				<md-list>
+					<md-list-item><strong>{{dg.data[1].name}}</strong>: {{dg.data[1].value}}</md-list-item>
+					<md-list-item><strong>{{dg.data[2].name}}</strong>: {{dg.data[2].value}}</md-list-item>
+					<md-list-item><strong>{{dg.data[3].name}}</strong>: {{dg.data[3].value}}</md-list-item>
+					<md-list-item><strong>{{dg.data[4].name}}</strong>: {{dg.data[4].value}}</md-list-item>
+					<md-list-item><strong>{{dg.data[5].name}}</strong>: {{dg.data[5].value}}</md-list-item>
+					<md-list-item><strong>{{dg.data[6].name}}</strong>: {{dg.data[6].value}}</md-list-item>
+					<md-list-item><strong>{{dg.data[7].name}}</strong>: {{dg.data[7].value}}</md-list-item>
+					<md-list-item><strong>{{dg.data[8].name}}</strong>: {{dg.data[8].value}}</md-list-item>
+					<md-list-item><strong>{{dg.data[9].name}}</strong>: {{dg.data[9].value}}</md-list-item>
+					<md-list-item><strong>{{dg.data[10].name}}</strong>: {{dg.data[10].value}}</md-list-item>
+					<!-- <md-list-item><strong>{{dg.data[12].name}}</strong>: <span ng-repeat="item in dg.data[12].value">{{item.name}} </span> -->
+					<md-list-item><strong>Perfil</strong>: <span ng-repeat="item in dg.data[12].value">{{item.name}} </span><md-list-item>
+				</md-list>
+			</div>
+		</md-dialog-content>
+	</form>
+</md-dialog>
