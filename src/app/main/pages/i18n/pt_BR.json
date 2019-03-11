@@ -112,7 +112,9 @@
 				"multiple": "Selcione várias imagens para fazer upload."
 			} 
 		}
-	},
+    },
+    "title":"Criar usuário",
+    "breadcrumb":"Criar usuário",
 	"dashboard_title":"Página inicial",
 	"admin": "Administrador",
 	"login": {
