@@ -129,8 +129,8 @@
                 var div= document.getElementById('vertical-navigation');
     
                  if(resto == 0){
-                     button.classList.add("margin-right-menu-mais");
-                     button.classList.remove("margin-right-menu");
+                    //  button.classList.add("margin-right-menu-mais");
+                    //  button.classList.remove("margin-right-menu");
     
                      div.classList.remove("md-locked-open");
                     div.classList.add('md-closed');
@@ -138,8 +138,8 @@
                 }else{
                     div.classList.add("md-locked-open","md-closed");               
                     div.classList.remove('md-closed');
-                     button.classList.remove("margin-right-menu-mais");
-                     button.classList.add("margin-right-menu");
+                    //  button.classList.remove("margin-right-menu-mais");
+                    //  button.classList.add("margin-right-menu");
     
                      controle = 0;
                 }
