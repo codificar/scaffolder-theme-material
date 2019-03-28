@@ -207,4 +207,11 @@ gulp.task('clean', function ()
 				});;
 });
 
-gulp.task('build', ['removeLogs', 'fonts', 'other', 'i18n', 'assets']);
+// custom tinymce copy
+gulp.task('tinymce', function ()
+{
+	return gulp.src(['bower_components/tinymce/{plugins,skins,themes}/**/*'])
+		.pipe(gulp.dest(path.join(conf.paths.dist, '/scripts/')));
+});
+
+gulp.task('build', ['removeLogs', 'fonts', 'other', 'i18n', 'assets', 'tinymce']);
