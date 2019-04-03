@@ -4,6 +4,7 @@
 		"MAIL_INVALID": "E-mail inválido",
 		"NUMBER_INVALID": "Número inválido",
 		"PHONE_INVALID": "Telefone inválido",
+		"CPF_INVALID": "CPF inválido",
 		"CNPJ_INVALID": "CNPJ inválido",
 		"CEP_INVALID": "CEP inválido",
 		"CONFIRM": "s não correspondem",

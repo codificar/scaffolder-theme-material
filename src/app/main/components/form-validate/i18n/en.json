@@ -4,6 +4,7 @@
 		"MAIL_INVALID": "Invalid email",
 		"NUMBER_INVALID": "Invalid number",
 		"PHONE_INVALID": "Invalid phone",
+		"CPF_INVALID": "Invalid CPF",
 		"CNPJ_INVALID": "Invalid CNPJ",
 		"CEP_INVALID": "Invalid CEP",
 		"CONFIRM": "s do not match",
