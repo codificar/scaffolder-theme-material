@@ -30,10 +30,6 @@
                     'navigation@app': {
                         templateUrl: 'app/navigation/layouts/vertical-navigation/navigation.html',
                         controller : 'NavigationController as vm'
-                    },
-                    'quickPanel@app': {
-                        templateUrl: 'app/quick-panel/quick-panel.html',
-                        controller : 'QuickPanelController as vm'
                     }
                 }
             });
