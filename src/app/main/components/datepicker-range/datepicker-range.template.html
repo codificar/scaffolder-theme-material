@@ -6,8 +6,16 @@
 		</md-select>
 	</md-input-container>
 	<div class="row" layout="column" layout-gt-sm="row" ng-show="datepickerRange.select == 'other'">
-		<md-datepicker  class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" flex="40"></md-datepicker>
-		<span class="md-label md-label-middle"  flex="20">{{ 'FORM.UNTIL' | translate }}</span>
-		<md-datepicker  class="md-block" ng-change="createRangePeriod()" md-min-date="calendar.start" ng-model="calendar.end"  flex="40"></md-datepicker>	
+		<md-datepicker ng-if="hideIcons==='all'" md-hide-icons="all" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
+		<md-datepicker ng-if="hideIcons==='calendar'" md-hide-icons="calendar" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
+		<md-datepicker ng-if="hideIcons==='triangle'" md-hide-icons="triangle" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
+		<md-datepicker ng-if="hideIcons===''" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
+		
+		<span class="md-label md-label-middle" >{{ 'FORM.UNTIL' | translate }}</span>
+		
+		<md-datepicker ng-if="hideIcons==='all'" md-hide-icons="all" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
+		<md-datepicker ng-if="hideIcons==='calendar'" md-hide-icons="calendar" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
+		<md-datepicker ng-if="hideIcons==='triangle'" md-hide-icons="triangle" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
+		<md-datepicker ng-if="hideIcons===''" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
 	</div>
 </div>

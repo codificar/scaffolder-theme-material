@@ -5,6 +5,9 @@
 	"THIS_MONTH": "Este mês",
 	"LAST_MONTH": "Mês passado",
 	"LAST_30": "Últimos 30 dias",
-	"THIS_YEAR": "Este Ano",
-	"ALL": "Todo Período"
+	"THIS_YEAR": "Esse ano",
+	"ALL": "Todo o tempo",
+	"FORM":{
+		"UNTIL":"Até"
+	}
 }

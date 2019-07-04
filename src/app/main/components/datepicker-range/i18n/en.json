@@ -6,5 +6,8 @@
 	"LAST_MONTH": "Last month",
 	"LAST_30": "Last 30 days",
 	"THIS_YEAR": "This year",
-	"ALL": "All period"
+	"ALL": "All period",
+	"FORM":{
+		"UNTIL":"To"
+	}
 }

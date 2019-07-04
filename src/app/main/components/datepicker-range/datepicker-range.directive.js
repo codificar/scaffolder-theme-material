@@ -10,7 +10,8 @@
 			var directive = {
 				restrict: 'EA',
 				scope: {
-					datapickerRangeName: "@"
+					datapickerRangeName: "@",
+					hideIcons: "@"				
 				},
 				templateUrl: 'app/main/components/datepicker-range/datepicker-range.template.html',
 				require: 'ngModel',
