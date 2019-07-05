@@ -43,7 +43,15 @@
 			            if(cep.length == 10){
 				        	ngModel.$setValidity(attrs.ngModel, true);
 				        }else{
-				        	ngModel.$setValidity(attrs.ngModel, false);
+				        	if(cep.length==0 && (!ngModel.$error.required || ngModel.$error.required==undefined))
+							{
+								ngModel.$setValidity(attrs.ngModel, true);
+								ngModel.$setTouched();
+							}
+							else
+							{
+								ngModel.$setValidity(attrs.ngModel, false);
+							}	
 				        }
 						
 						element[0].value = cep;

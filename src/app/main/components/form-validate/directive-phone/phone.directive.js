@@ -38,7 +38,7 @@
 						
 						phone = phone.replace(/\D/g,"");            
 				        phone = phone.replace(/^(\d\d)(\d)/g,"($1) $2"); 
-				        phone = phone.replace(/(\d)(\d{4})$/,"$1-$2");   
+						phone = phone.replace(/(\d)(\d{4})$/,"$1-$2");   
 
 				        if(phone.length > 14){
 				        	phone = phone.replace(/^(\d{6})(\d)/,"$1 $2");
@@ -46,7 +46,16 @@
 
 
 				        if(phone.length < 14){
-				        	ngModel.$setValidity(attrs.ngModel, false);
+							
+							if(phone.length==0 && (!ngModel.$error.required || ngModel.$error.required==undefined))
+							{
+								ngModel.$setValidity(attrs.ngModel, true);
+								ngModel.$setTouched();
+							}
+							else
+							{
+								ngModel.$setValidity(attrs.ngModel, false);
+							}	
 				        }else{
 				        	ngModel.$setValidity(attrs.ngModel, true);
 				        }
