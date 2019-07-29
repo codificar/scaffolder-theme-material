@@ -5,17 +5,21 @@
 			<md-option ng-value="period.value" ng-repeat="period in periods">{{period.name}}</md-option>
 		</md-select>
 	</md-input-container>
-	<div class="row" layout="column" layout-gt-sm="row" ng-show="datepickerRange.select == 'other'">
-		<md-datepicker ng-if="hideIcons==='all'" md-hide-icons="all" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
-		<md-datepicker ng-if="hideIcons==='calendar'" md-hide-icons="calendar" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
-		<md-datepicker ng-if="hideIcons==='triangle'" md-hide-icons="triangle" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
-		<md-datepicker ng-if="!hideIcons" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
-		
-		<span class="md-label md-label-middle" >{{ 'FORM.UNTIL' | translate }}</span>
-		
-		<md-datepicker ng-if="hideIcons==='all'" md-hide-icons="all" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
-		<md-datepicker ng-if="hideIcons==='calendar'" md-hide-icons="calendar" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
-		<md-datepicker ng-if="hideIcons==='triangle'" md-hide-icons="triangle" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
-		<md-datepicker ng-if="!hideIcons" class="md-block" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" ></md-datepicker>
+
+	<div flex="100" layout="column" layout-gt-sm="column" ng-show="datepickerRange.select == 'other'">
+		<div class="text-align-center width-100-perc">
+		    <span class="md-caption" class="width-100-perc">{{ 'SPECIFIC' | translate }}</span>
+		</div>
+		<div layout="row" flex="100">
+			<md-datepicker ng-if="hideIcons==='all'" md-hide-icons="all" layout="row" class="md-block ajust-datepicker" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" flex="45"></md-datepicker>
+			<md-datepicker ng-if="hideIcons==='calendar'" md-hide-icons="calendar" layout="row" class="md-block ajust-datepicker" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" flex="45"></md-datepicker>
+			<md-datepicker ng-if="hideIcons==='triangle'" md-hide-icons="triangle" layout="row" class="md-block ajust-datepicker" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" flex="45"></md-datepicker>
+			<md-datepicker ng-if="!hideIcons" layout="row" class="md-block ajust-datepicker" ng-change="createRangePeriod()" ng-model="calendar.start" md-max-date="calendar.end" flex="45"></md-datepicker>
+
+			<md-datepicker ng-if="hideIcons==='all'" md-hide-icons="all" class="md-block ajust-datepicker margin-left-45px" ng-change="createRangePeriod()" md-min-date="calendar.start" ng-model="calendar.end"  flex="45"></md-datepicker>
+			<md-datepicker ng-if="hideIcons==='calendar'" md-hide-icons="calendar" class="md-block ajust-datepicker margin-left-45px" ng-change="createRangePeriod()" md-min-date="calendar.start" ng-model="calendar.end"  flex="45"></md-datepicker>
+			<md-datepicker ng-if="hideIcons==='triangle'" md-hide-icons="triangle" class="md-block ajust-datepicker margin-left-45px" ng-change="createRangePeriod()" md-min-date="calendar.start" ng-model="calendar.end"  flex="45"></md-datepicker>
+			<md-datepicker ng-if="!hideIcons" class="md-block ajust-datepicker margin-left-45px" ng-change="createRangePeriod()" md-min-date="calendar.start" ng-model="calendar.end"  flex="45"></md-datepicker>
+		</div>
 	</div>
 </div>
