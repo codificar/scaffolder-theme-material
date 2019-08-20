@@ -24,7 +24,10 @@
 
 				$translate = $filter('translate');
 				$scope.datepickerRange = {};
-				$scope.calendar = {};
+				$scope.calendar = {
+					start: moment("00:00", "HH:mm").toDate(),
+					end: moment("23:59", "HH:mm").toDate()
+				};
 				$scope.dates = {
 					todayStart: moment("00:00", "HH:mm").toDate(),
 					todayEnd: moment("23:59", "HH:mm").toDate(),
